@@ -1,0 +1,35 @@
+* {
+    margin: 1rem;
+    padding: 1px;
+    box-sizing: border-box;
+}
+
+.speech-assistant {
+    padding: 2px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-width: 10%;
+    max-width: 70%;
+    align-self: start;
+    background-color: #a6e7f6;
+    float: left;
+    text-align: left;
+}
+
+.speech-user {
+    padding: 2px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-width: 10%;
+    max-width: 70%;
+    align-self: end;
+    background-color: #6ac47e;
+    border-radius: 10px;
+    float: right;
+    text-align: right;
+}
