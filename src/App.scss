@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+/*html, body{
+    height: 100%;
+    background: linear-gradient(300deg, #6155A6, #A685E2, #FFABE1);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite; 
+}*/
+
 .speech-assistant {
     padding: 2px;
     border-radius: 10px;
@@ -17,6 +24,7 @@
     background-color: #a6e7f6;
     float: left;
     text-align: left;
+    
 }
 
 .speech-user {
@@ -32,4 +40,25 @@
     border-radius: 10px;
     float: right;
     text-align: right;
+    
+}
+
+.gradient-background {
+    background: linear-gradient(300deg, #6155A6, #A685E2, #FFABE1);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }

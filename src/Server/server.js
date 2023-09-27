@@ -1,19 +1,44 @@
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors')
-
 const app = express();
-app.use(express.json());
-
 const axios = require('axios');
-app.use(cors());
+const cookieParser = require('cookie-parser');
+const authRoutes = require('./Routes/AuthRoute');
 
+//app.use(cors())
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+)
+
+const MONGO_URL = process.env.MONGO_URL;
+  //"mongodb+srv://talott:TestPassword@cluster0.ly9d7ps.mongodb.net/?retryWrites=true&w=majority";
 const apiUrl = "https://api.openai.com/v1/chat/completions";
+
+mongoose.connect(MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected...'))
+.catch(err => console.log(err));
 
 const port = 3001;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
 });
+
+
+
+app.use(cookieParser());
+
+app.use(express.json());
+
+app.use("/", authRoutes);
 
 app.post('/completions', async (req, res) => {
   console.log(req.body);
